@@ -20,7 +20,11 @@ public class PingtestGlobal {
 			BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			String line = null;
 			while((line = in.readLine()) != null){
-				if(line.contains("time")){
+				if(line.contains("timeout")){
+					totalTime = 9999999;
+					break;
+				}
+				else if(line.contains("time")){
 					int startIndex = line.indexOf("time");
 					int endIndex = line.indexOf("ms")-1;
 					String timeString = line.substring(startIndex, endIndex);
