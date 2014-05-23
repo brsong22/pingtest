@@ -1,4 +1,4 @@
-package pingtest;
+//package pingtest; comment out this line to be able to run from command line
 
 import java.io.BufferedReader;
 import java.io.IOException;
