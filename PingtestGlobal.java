@@ -21,7 +21,7 @@ public class PingtestGlobal {
 			String line = null;
 			while((line = in.readLine()) != null){
 				if(line.contains("timeout")){
-					totalTime = 9999999;
+					totalTime = -1;
 					break;
 				}
 				else if(line.contains("time")){
@@ -33,7 +33,10 @@ public class PingtestGlobal {
 				}
 			}
 			in.close();
-			System.out.println("Your average ping to <" + url + "> over " + count + " ping(s) is: " + totalTime/Double.parseDouble(count));
+			if(totalTime != -1){
+				totalTime = totalTime/Double.parseDouble(count);
+			}
+			System.out.println("Your average ping to <" + url + "> over " + count + " ping(s) is: " + totalTime);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
