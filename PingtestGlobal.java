@@ -9,7 +9,7 @@ public class PingtestGlobal {
 	public static void main(String[] args) {
 		double totalTime = 0;
 		String count = "1";
-		if(args.length() == 2){
+		if(args.length == 2){
 			count = args[1];
 		}
 		String url = args[0];
