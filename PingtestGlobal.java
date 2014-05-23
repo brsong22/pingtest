@@ -8,7 +8,10 @@ public class PingtestGlobal {
 
 	public static void main(String[] args) {
 		double totalTime = 0;
-		String count = "10";
+		String count = "1";
+		if(args.length() == 2){
+			count = args[1];
+		}
 		String url = args[0];
 		String cmd = "ping -c " + count + " " + url;
 		Runtime runtime = Runtime.getRuntime();
@@ -26,7 +29,7 @@ public class PingtestGlobal {
 				}
 			}
 			in.close();
-			System.out.println("Your average ping to <" + url + "> over 10 pings is: " + totalTime/(double)10);
+			System.out.println("Your average ping to <" + url + "> over " + count + " ping(s) is: " + totalTime/Double.parseDouble(count));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
